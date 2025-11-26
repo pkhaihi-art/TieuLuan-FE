@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="38d01818-0767-40fe-8857-28fc2814b3f9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/modules/simulation/SimulationForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/simulation/SimulationSavePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/simulation/SpecializationListPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/simulation/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/simulation/routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../FE_TieuLuan/CMS/CMS/source/src/modules/simulation/SpecializationListPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../FE_TieuLuan/CMS/CMS/source/src/modules/simulation/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../FE_TieuLuan/CMS/CMS/source/src/modules/simulation/routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../FE_TieuLuan/EDU/source/src/hooks/useVerifyOtpStudent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/source.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.dev" beforeDir="false" afterPath="$PROJECT_DIR$/env/.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.staging" beforeDir="false" afterPath="$PROJECT_DIR$/env/.staging" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/bg_404.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/bg_404.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/apiConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/apiConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/masterData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/masterData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/menuConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/menuConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/modalMessages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/modalMessages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/locales/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/locales/intl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/intl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/locales/vi.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/vi.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/admin/AdminForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/admin/AdminSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/admin/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/admin/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/brands/BrandForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/brands/BrandSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/brands/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/brands/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/contacts/ContactSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/contacts/ContactsCreateModal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/contacts/ContactsForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/contacts/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/contacts/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/department/DepartmentForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/department/DepartmentSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/department/departmentEmployee/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/department/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/department/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceCatalog/DeviceCatalogForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceCatalog/DeviceCatalogSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceCatalog/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceCatalog/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceEmployee/DeviceEmployeeForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceEmployee/DeviceEmployeeSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceEmployee/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceHistoryCost/DeviceHistoryCostForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceHistoryCost/DeviceHistoryCostSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceHistoryCost/FileUploadComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceHistoryCost/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/deviceHistoryCost/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/devices/DeviceForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/devices/DeviceSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/devices/deviceEmployeeLog/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/devices/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/devices/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/devices/useDeviceList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/employee/EmployeeForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/employee/EmployeeSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/employee/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/employee/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/login/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/login/index.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/message/MessageForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/message/MessageSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/message/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/message/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/nation/NationForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/nation/NationSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/nation/district/DistrictForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/nation/district/DistrictSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/nation/district/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/nation/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/nation/nation.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/nation/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/nation/village/VillageForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/nation/village/VillageSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/nation/village/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/news/NewsForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/news/NewsForm.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/news/NewsSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/news/category/CategorySavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/news/category/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/news/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/news/index.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/news/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/phoneCall/PhoneCallForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/phoneCall/PhoneCallHistoryPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/phoneCall/PhoneCallSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/phoneCall/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/phoneCall/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/profile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/profile/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/tag/ContactTagListPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/tag/TagForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/tag/TagModal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/tag/TagSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/tag/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/tag/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/UserAdminForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/UserAdminSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/address/AddressForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/address/AddressSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/address/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/users/UserForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/users/UserSavePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/users/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="31Gwh1kz67Cs9drD06OlzuVPNZs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;khai__dev&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/D/Git/TieuLuan/CMS/source&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-WS-251.26094.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="38d01818-0767-40fe-8857-28fc2814b3f9" name="Changes" comment="" />
+      <created>1755163833352</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1755163833352</updated>
+      <workItem from="1755163834442" duration="1466000" />
+      <workItem from="1755184702683" duration="3573000" />
+      <workItem from="1755189307206" duration="5147000" />
+      <workItem from="1755245711741" duration="2803000" />
+      <workItem from="1755519112354" duration="65000" />
+      <workItem from="1758032853805" duration="23000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

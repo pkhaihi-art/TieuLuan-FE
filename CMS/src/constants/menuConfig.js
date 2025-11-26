@@ -1,0 +1,67 @@
+import React from 'react';
+import { TeamOutlined } from '@ant-design/icons';
+import routes from '@routes';
+import { FormattedMessage } from 'react-intl';
+import apiConfig from './apiConfig';
+import { IconSettings } from '@tabler/icons-react';
+
+export const navMenuConfig = [
+    {
+        label: <FormattedMessage defaultMessage="Quản lý người dùng" />,
+        key: 'quan-ly-nguoi-dung',
+        icon: <TeamOutlined size={16} />,
+        permission: apiConfig.account.getList.permissionCode,
+        children: [
+            {
+                label: <FormattedMessage defaultMessage="Quản trị viên" />,
+                key: 'admin',
+                path: routes.adminListPage.path,
+                permission: apiConfig.account.getList.permissionCode,
+            },
+            {
+                label: <FormattedMessage defaultMessage="Educator" />,
+                key: 'educator',
+                path: routes.educatorListPage.path,
+                permission: apiConfig.educator.getList.permissionCode,
+            },
+            {
+                label: <FormattedMessage defaultMessage="Student" />,
+                key: 'student',
+                path: routes.studentListPage.path,
+                permission: apiConfig.student.getList.permissionCode,
+            },
+        ],
+    },
+    {
+        label: <FormattedMessage defaultMessage="Quản lý hệ thống" />,
+        key: 'quan-ly-he-thong',
+        icon: <IconSettings size={16} />,
+        children: [
+            {
+                label: <FormattedMessage defaultMessage="Quyền hạn" />,
+                key: 'role',
+                path: routes.groupPermissionPage.path,
+                permission: [apiConfig.groupPermission.getList.permissionCode],
+            },
+        ],
+    },
+    {
+        label: <FormattedMessage defaultMessage="Quản lý bài mô phỏng" />,
+        key: 'quan-ly-bai-mo-phong',
+        icon: <IconSettings size={16} />,
+        children: [
+            // {
+            //     label: <FormattedMessage defaultMessage="Danh sách mô phỏng" />,
+            //     key: 'simulation',
+            //     path: routes.simulationListPage.path,
+            //     permission: [apiConfig.simulation.getList.permissionCode],
+            // },
+            {
+                label: <FormattedMessage defaultMessage="Danh sách mô phỏng" />,
+                key: 'simulation1',
+                path: routes.educatorListPage.auth,
+                permission: [apiConfig.simulation.getListForEducator.permissionCode],
+            },
+        ],
+    },
+];
