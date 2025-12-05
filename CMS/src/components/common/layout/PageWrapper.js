@@ -10,7 +10,7 @@ import { commonMessage } from '@locales/intl';
 const PageWrapper = ({ loading, children, routes = [], tabs, onChangeTab, activeTab }) => {
     const hasTab = !!tabs?.length;
     const translate = useTranslate();
-    routes = [{ breadcrumbName: translate.formatMessage(commonMessage.home), path: '/admins' }, ...routes];
+    routes = [{ breadcrumbName: translate.formatMessage(commonMessage.home), path: '/' }, ...routes];
 
     return (
         <Spin spinning={!!loading} wrapperClassName={styles.pageWrapper}>

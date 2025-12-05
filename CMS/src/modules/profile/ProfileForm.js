@@ -1,9 +1,12 @@
 import TextField from '@components/common/form/TextField';
+import DatePickerField from '@components/common/form/DatePickerField';
 import React, { useEffect } from 'react';
+import dayjs from 'dayjs';
 import useBasicForm from '@hooks/useBasicForm';
 import { defineMessages } from 'react-intl';
 import useTranslate from '@hooks/useTranslate';
 import { Card, Form } from 'antd';
+import usePasswordValidation from '@hooks/usePasswordValidation';  // ← Thêm hook này
 
 const messages = defineMessages({
     banner: 'Banner',
@@ -14,6 +17,7 @@ const messages = defineMessages({
     email: 'Email',
     hotline: 'Hot line',
     phoneNumber: 'Phone Number',
+    birthday: 'Birthday',
     taxNumber: 'Tax Number',
     zipCode: 'Zip Code',
     city: 'City',
@@ -27,7 +31,7 @@ const messages = defineMessages({
 });
 
 const ProfileForm = (props) => {
-    const { formId, dataDetail, onSubmit, setIsChangedFormValues, actions, isAdmin } = props;
+    const { formId, dataDetail, onSubmit, setIsChangedFormValues, actions } = props;
 
     const translate = useTranslate();
 
@@ -36,10 +40,18 @@ const ProfileForm = (props) => {
         setIsChangedFormValues,
     });
 
+    // ✔️ Sử dụng hook kiểm tra mật khẩu (min = 6 ký tự để phù hợp rule cũ)
+    const { passwordRules, confirmPasswordRules } = usePasswordValidation(6);
+
     useEffect(() => {
-        form.setFieldsValue({
-            ...dataDetail,
-        });
+        if (dataDetail) {
+            form.setFieldsValue({
+                ...dataDetail,
+                birthday: dataDetail.birthday
+                    ? dayjs(dataDetail.birthday, "DD/MM/YYYY HH:mm:ss")
+                    : null,
+            });
+        }
     }, [dataDetail]);
 
     const handleFinish = (values) => {
@@ -62,51 +74,45 @@ const ProfileForm = (props) => {
                 layout="horizontal"
                 onValuesChange={onValuesChange}
             >
-                <TextField
-                    readOnly
-                    label={translate.formatMessage(messages.username)}
-                    name={'username'}
-                />
+                <TextField readOnly label={translate.formatMessage(messages.username)} name={'username'} />
+
                 <TextField label={translate.formatMessage(messages.email)} name={'email'} />
+
                 <TextField label={translate.formatMessage(messages.fullName)} name={'fullName'} />
+
+                <TextField 
+                    label={translate.formatMessage(messages.phoneNumber)} 
+                    name={'phone'}
+                />
+
+                <DatePickerField
+                    name="birthday"
+                    label="Ngày sinh"
+                    format="DD/MM/YYYY"
+                    showTime={false}
+                />
+
                 <TextField
                     type="password"
-                    label={translate.formatMessage(messages.currentPassword)}
                     required
+                    label={translate.formatMessage(messages.currentPassword)}
                     name="oldPassword"
                 />
+
+
                 <TextField
                     type="password"
                     label={translate.formatMessage(messages.newPassword)}
-                    name="password"
-                    rules={[
-                        {
-                            validator: async () => {
-                                const isTouched = form.isFieldTouched('newPassword');
-                                if (isTouched) {
-                                    const value = form.getFieldValue('newPassword');
-                                    if (value.length < 6) {
-                                        throw new Error(translate.formatMessage(messages.passwordLengthError));
-                                    }
-                                }
-                            },
-                        },
-                    ]}
+                    name="newPassword"
+                    rules={passwordRules}  
                 />
+
                 <TextField
                     type="password"
                     label={translate.formatMessage(messages.confirmPassword)}
-                    rules={[
-                        {
-                            validator: async () => {
-                                const password = form.getFieldValue('newPassword');
-                                const confirmPassword = form.getFieldValue('confirmPassword');
-                                if (password !== confirmPassword) {
-                                    throw new Error(translate.formatMessage(messages.passwordMatchError));
-                                }
-                            },
-                        },
-                    ]}
+                    name="confirmPassword"
+                    dependencies={['newPassword']}
+                    rules={confirmPasswordRules(form.getFieldValue)}  
                 />
 
                 <div className="footer-card-form">{actions}</div>

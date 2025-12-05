@@ -67,7 +67,7 @@ const LoginPage = () => {
                 fetchEducatorProfile({
                     onCompleted: () => {
                         antMessage.success('Login successful!');
-                        navigate('/educator-profile');
+                        navigate('/');
                     },
                     onError: () => {
                         antMessage.error('Failed to load educator profile!');

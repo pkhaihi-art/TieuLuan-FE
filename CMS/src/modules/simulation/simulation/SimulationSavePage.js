@@ -11,19 +11,16 @@ import useSaveBase from '@hooks/useSaveBase';
 import useTranslate from '@hooks/useTranslate';
 
 import { commonMessage } from '@locales/intl';
-import SimulationForm from "@modules/simulation/SimulationForm";
+import SimulationForm from "@modules/simulation/simulation/SimulationForm";
 
-const SimulationSavePage = ({ pageOptions }) => {
+const EducatorSimulationSavePage = ({ pageOptions }) => {
     const translate = useTranslate();
     const { id } = useParams();
 
     // Fetch specializations for the dropdown select field
     const { data: specializations } = useFetch(apiConfig.specialization.getList, {
         immediate: true,
-        mappingData: (res) => res.data?.content?.map((item) => ({ 
-            id: item.id,
-            name: item.name,
-        })),
+        mappingData: (res) => res.data?.content?.map((item) => ({ value: item.id, label: item.name })),
     });
 
     // Translate level options for the dropdown
@@ -31,7 +28,7 @@ const SimulationSavePage = ({ pageOptions }) => {
 
     const { detail, mixinFuncs, loading, onSave, setIsChangedFormValues, isEditing, title } = useSaveBase({
         apiConfig: {
-            getById: apiConfig.simulation.getById,
+            getById: apiConfig.simulation.getSimulationForEducator,
             create: apiConfig.simulation.create,
             update: apiConfig.simulation.update,
         },
@@ -40,23 +37,27 @@ const SimulationSavePage = ({ pageOptions }) => {
             objectName: translate.formatMessage(commonMessage.simulation)?.toLowerCase(),
         },
         override: (funcs) => {
-            // Prepare data for updating an existing simulation
+            // Chuẩn bị data cho update
             funcs.prepareUpdateData = (data) => {
-                return {
-                    ...data,
-                    id: id,
-                };
+                const payload = { ...data, id: id };
+                if (!payload.specializationId) {
+                    delete payload.specializationId;
+                }
+                return payload;
             };
-            // Prepare data for creating a new simulation
+
+            // Chuẩn bị data cho create
             funcs.prepareCreateData = (data) => {
                 return {
                     ...data,
                 };
             };
-            // Map the response from getById to fit the form structure
-            funcs.mappingData = (data) => {
+
+            // Map response từ getById
+            funcs.mappingData = (res) => {
+                const data = res.data;
                 return {
-                    ...data.data,
+                    ...data,
                 };
             };
         },
@@ -78,4 +79,4 @@ const SimulationSavePage = ({ pageOptions }) => {
     );
 };
 
-export default SimulationSavePage;
+export default EducatorSimulationSavePage;

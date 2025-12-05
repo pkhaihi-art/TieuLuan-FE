@@ -1,12 +1,12 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Empty, Tag, Button, Tooltip } from 'antd';
-import { PlusOutlined, EyeOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 
 import useListBase from '@hooks/useListBase';
 import useTranslate from '@hooks/useTranslate';
 
-import { DEFAULT_TABLE_ITEM_SIZE } from '@constants';
+import { DEFAULT_TABLE_ITEM_SIZE, storageKeys, UserTypes } from '@constants';
 import apiConfig from '@constants/apiConfig';
 import { FieldTypes } from '@constants/formConfig';
 import { questionTypeOptions } from '@constants/masterData';
@@ -17,11 +17,17 @@ import ListPage from '@components/common/layout/ListPage';
 import PageWrapper from '@components/common/layout/PageWrapper';
 
 import { calculateIndex } from '@utils';
+import { getData } from '@utils/localStorage';
 
 const TaskQuestionListPage = ({ pageOptions }) => {
     const translate = useTranslate();
     const navigate = useNavigate();
     const { simulationId, taskId } = useParams();
+
+    // Phát hiện user type
+    const userType = getData(storageKeys.USER_TYPE);
+    const isEducator = userType === UserTypes.EDUCATOR;
+    const isAdmin = userType === UserTypes.ADMIN;
 
     const formattedQuestionTypeOptions = translate.formatKeys(questionTypeOptions, ['label']);
     const questionTypeMap = Object.fromEntries(
@@ -35,6 +41,9 @@ const TaskQuestionListPage = ({ pageOptions }) => {
         noData: translate.formatMessage(commonMessage.noData),
         action: translate.formatMessage(commonMessage.action),
         taskQuestion: translate.formatMessage(commonMessage.taskQuestion),
+        title: translate.formatMessage(commonMessage.title),
+        description: translate.formatMessage(commonMessage.description),
+        simulation: translate.formatMessage(commonMessage.simulation),
     };
 
     const questionTypeValues = formattedQuestionTypeOptions.map(item => ({
@@ -42,17 +51,27 @@ const TaskQuestionListPage = ({ pageOptions }) => {
         label: item.label,
     }));
 
-    const { data, mixinFuncs, queryFilter, loading, pagination } = useListBase({
-        apiConfig: {
-            getList: apiConfig.taskQuestion.getList,
+    // Cấu hình API theo role
+    const apiConfiguration = isEducator
+        ? {
+            getList: apiConfig.taskQuestion.educatorList,
             delete: apiConfig.taskQuestion.delete,
+            create: apiConfig.taskQuestion.create,
             update: apiConfig.taskQuestion.update,
-        },
+        }
+        : {
+            getList: apiConfig.taskQuestion.getList,
+            // Admin không có quyền delete, create, update
+        };
+
+    const { data, mixinFuncs, queryFilter, loading, pagination } = useListBase({
+        apiConfig: apiConfiguration,
         options: {
             objectName: labels.taskQuestion,
             pageSize: DEFAULT_TABLE_ITEM_SIZE,
         },
         override: (funcs) => {
+            // Truyền simulationId và taskId vào params cho cả Educator và Admin
             funcs.prepareGetListParams = (params) => ({
                 ...params,
                 simulationId: simulationId,
@@ -126,8 +145,14 @@ const TaskQuestionListPage = ({ pageOptions }) => {
         mixinFuncs.renderQuestionTypeColumn({ width: '150px' }),
         mixinFuncs.renderActionColumn(
             {
-                edit: () => mixinFuncs.hasPermission([apiConfig.taskQuestion.update.permissionCode]),
-                delete: () => mixinFuncs.hasPermission([apiConfig.taskQuestion.delete.permissionCode]),
+                // Educator: có quyền edit và delete
+                // Admin: không có quyền gì (chỉ xem)
+                edit: isEducator 
+                    ? () => mixinFuncs.hasPermission([apiConfig.taskQuestion.update.permissionCode])
+                    : false,
+                delete: isEducator 
+                    ? () => mixinFuncs.hasPermission([apiConfig.taskQuestion.delete.permissionCode])
+                    : false,
             },
             { width: '120px', title: labels.action },
         ),
@@ -149,25 +174,26 @@ const TaskQuestionListPage = ({ pageOptions }) => {
 
     return (
         <PageWrapper
-            routes={pageOptions.renderBreadcrumbs(commonMessage, translate, null, { simulationId, taskId })}
+            routes={pageOptions.renderBreadcrumbs(
+                commonMessage,
+                translate,
+                null,
+                { simulationId, taskId },
+            )}
         >
             <ListPage
                 searchForm={mixinFuncs.renderSearchForm({
                     fields: searchFields,
                     initialValues: queryFilter,
                 })}
-                actionBar={
-                    <Button type="primary" icon={<PlusOutlined />} onClick={handleCreateClick}>
-                        {translate.formatMessage(commonMessage.create)}
-                    </Button>
-                }
+                actionBar={isEducator ? mixinFuncs.renderActionBar() : null}
                 baseTable={
                     <BaseTable
                         onChange={mixinFuncs.changePagination}
                         columns={columns}
                         dataSource={data}
                         loading={loading}
-                        rowKey={record => record.id}
+                        rowKey={(record) => record.id}
                         pagination={pagination}
                         onRow={(record, idx) => ({
                             style: { backgroundColor: idx % 2 ? '#f9f9f9' : '#ffffff' },

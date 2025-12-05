@@ -1,6 +1,11 @@
 import { defineMessages } from 'react-intl';
 
 export const commonMessage = defineMessages({
+    level_1: 'Cơ bản',
+    level_2: 'Trung cấp',
+    level_3: 'Nâng cao',
+    level_4: 'Chuyên gia',
+    viewDetails: 'Xem chi tiết',
     video:'Video',
     image: 'Hình ảnh',
     invalidSerial: 'Số serial chỉ được chứa chữ cái, số, dấu gạch ngang (-) hoặc gạch dưới (_)!',
@@ -27,6 +32,13 @@ export const commonMessage = defineMessages({
     title: 'Tiêu đề',
     specialization:'Chuyên môn',
     status: 'Trạng thái',
+    statusWaitingApproveDelete:'Chờ duyệt xóa',
+    statusWaitingApprove:'Chờ duyệt đăng',
+    statusActive:'Hoạt động',
+    statusPending:'Chờ duyệt',
+    statusReject:'Từ chối',
+    statusInactive:'Không hoạt động',
+    statusLock:'Khoá',
     username: 'Tên đăng nhập',
     fullName: 'Họ và tên',
     likedAmount: 'Số lượt thích',
@@ -52,6 +64,8 @@ export const commonMessage = defineMessages({
     email: 'Email',
     invalidEmail: 'Email không hợp lệ',
     bio: 'Tiểu sử',
+    rejectConfirm:'Xác nhận từ chối',
+    approveConfirm:'Xác nhận duyệt',
 
     name: 'Tên',
     description: 'Mô tả',
@@ -152,9 +166,7 @@ export const commonMessage = defineMessages({
 
     approve:'Duyệt',
     confirmApprove:'Xác nhận duyệt',
-    statusActive:"Hoạt động",
-    statusPending:"Chờ duyệt",
-    statusLock:"Khoá",
+    statusWaitingOtp:"Chờ điền OTP",
     student:"Học viên",
     simulation:"Mô phỏng",
     action:"Hành động",
@@ -166,8 +178,9 @@ export const commonMessage = defineMessages({
     maxErrors: 'Số lỗi tối đa',
     videoPath: 'Đường dẫn video',
     filePath: 'Đường dẫn file',
-
+    update: 'Cập nhật',
     // Task Kind
+    subtask:"Nhiệm vụ con",
     taskKindTheory: 'Lý thuyết',
     taskKindPractice: 'Thực hành',
     taskKindQuiz: 'Bài kiểm tra',
@@ -213,8 +226,6 @@ export const commonMessage = defineMessages({
     delete: 'Xóa',
     cancel: 'Hủy',
     reject: 'Từ chối',
-
-    statusInactive: "Không hoạt động",
 
     genderMale: "Nam",
     genderFemale: "Nữ",

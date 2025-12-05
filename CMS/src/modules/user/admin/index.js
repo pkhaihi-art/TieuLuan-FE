@@ -18,15 +18,26 @@ import { FieldTypes } from '@constants/formConfig';
 const AdminListPage = ({ pageOptions }) => {
     const translate = useTranslate();
 
+    const apiConfiguration = {
+        getList: apiConfig.account.getList,
+        delete: apiConfig.account.delete,
+        create: apiConfig.account.createAdmin,
+        update: apiConfig.account.updateAdmin,
+    };
+
     const { data, mixinFuncs, queryFilter, loading, pagination } = useListBase({
-        apiConfig: apiConfig.account,
+        apiConfig: apiConfiguration,
         options: {
             pageSize: DEFAULT_TABLE_ITEM_SIZE,
-            objectName: translate.formatMessage(pageOptions.objectName)?.toLowerCase(),
+            objectName: translate
+                .formatMessage(pageOptions.objectName)
+                ?.toLowerCase(),
         },
         override: (funcs) => {
             funcs.mappingData = (data) => {
-                return data;
+                if (Array.isArray(data?.content)) return data.content;
+                if (Array.isArray(data)) return data;
+                return [];
             };
         },
     });
@@ -36,7 +47,8 @@ const AdminListPage = ({ pageOptions }) => {
             title: '#',
             width: '30px',
             align: 'center',
-            render: (text, record, index) => calculateIndex(index, pagination, queryFilter),
+            render: (text, record, index) =>
+                calculateIndex(index, pagination, queryFilter),
         },
         {
             title: translate.formatMessage(commonMessage.avatar),
@@ -46,10 +58,16 @@ const AdminListPage = ({ pageOptions }) => {
                 <AvatarField
                     size="large"
                     icon={<UserOutlined />}
-                    src={avatar ? `${AppConstants.contentRootUrl}${avatar}` : null}
+                    src={
+                        avatar
+                            ? `${AppConstants.contentRootUrl}${avatar}`
+                            : null
+                    }
                 />
             ),
-            width: getColumnWidth({ width: translate.formatMessage(commonMessage.avatar).length * 10 }),
+            width: getColumnWidth({
+                width: translate.formatMessage(commonMessage.avatar).length * 10,
+            }),
         },
         {
             title: translate.formatMessage(commonMessage.username),
@@ -58,12 +76,21 @@ const AdminListPage = ({ pageOptions }) => {
         {
             title: translate.formatMessage(commonMessage.fullName),
             dataIndex: 'fullName',
-            width: getColumnWidth({ data, dataIndex: 'fullName', ratio: 8, width: 120 }),
+            width: getColumnWidth({
+                data,
+                dataIndex: 'fullName',
+                ratio: 8,
+                width: 120,
+            }),
         },
         {
             title: translate.formatMessage(commonMessage.email),
             dataIndex: 'email',
-            width: getColumnWidth({ data, dataIndex: 'email', ratio: 8 }),
+            width: getColumnWidth({
+                data,
+                dataIndex: 'email',
+                ratio: 8,
+            }),
         },
         {
             title: translate.formatMessage(commonMessage.phone),
@@ -72,9 +99,13 @@ const AdminListPage = ({ pageOptions }) => {
         },
         mixinFuncs.renderActionColumn(
             {
-                edit: mixinFuncs.hasPermission([apiConfig?.account?.updateAdmin?.permissionCode]),
+                edit: mixinFuncs.hasPermission([
+                    apiConfig?.account?.updateAdmin?.permissionCode,
+                ]),
                 delete: (record) =>
-                    mixinFuncs.hasPermission([apiConfig?.account?.delete?.permissionCode]) && !record.isSuperAdmin,
+                    mixinFuncs.hasPermission([
+                        apiConfig?.account?.delete?.permissionCode,
+                    ]) && !record.isSuperAdmin,
             },
             { width: '120px' },
         ),
@@ -97,9 +128,14 @@ const AdminListPage = ({ pageOptions }) => {
     ];
 
     return (
-        <PageWrapper routes={pageOptions.renderBreadcrumbs(commonMessage, translate)}>
+        <PageWrapper
+            routes={pageOptions.renderBreadcrumbs(commonMessage,translate)}
+        >
             <ListPage
-                searchForm={mixinFuncs.renderSearchForm({ fields: searchFields, initialValues: queryFilter })}
+                searchForm={mixinFuncs.renderSearchForm({
+                    fields: searchFields,
+                    initialValues: queryFilter,
+                })}
                 actionBar={mixinFuncs.renderActionBar()}
                 baseTable={
                     <BaseTable
@@ -110,9 +146,20 @@ const AdminListPage = ({ pageOptions }) => {
                         rowKey={(record) => record.id}
                         pagination={pagination}
                         onRow={(record, index) => ({
-                            style: { backgroundColor: index % 2 === 1 ? '#fefefe' : '#ffffff' },
+                            style: {
+                                backgroundColor:
+                                    index % 2 === 1 ? '#fefefe' : '#ffffff',
+                            },
                         })}
-                        locale={{ emptyText: <Empty description={translate.formatMessage(commonMessage.noData)} /> }}
+                        locale={{
+                            emptyText: (
+                                <Empty
+                                    description={translate.formatMessage(
+                                        commonMessage.noData,
+                                    )}
+                                />
+                            ),
+                        }}
                     />
                 }
             />

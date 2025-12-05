@@ -22,6 +22,7 @@ export const storageKeys = {
     TENANT_HEADER: `X-tenant`,
     TENANT_API_URL: `${appName}-${process.env.REACT_APP_ENV}-tenant-api-url`,
     USER_TYPE: 'USER_TYPE',
+    PARENT_TASK_INFO: 'PARENT_TASK_INFO',
 };
 
 export const AppConstants = {
@@ -81,10 +82,14 @@ export const UploadFileTypes = {
 
 export const LIMIT_IMAGE_SIZE = 512000;
 
-export const STATUS_PENDING = 2;
 export const STATUS_ACTIVE = 1;
+export const STATUS_PENDING = 0;
+export const STATUS_WAITING_APPROVE = 2;
+export const STATUS_WAITING_APPROVE_DELETE = 3;
+export const STATUS_LOCK = -1;
+export const STATUS_REJECT = -2;
+export const STATE_WAITING_OTP = 0;
 export const STATUS_INACTIVE = -1;
-export const STATUS_LOCK =  0;
 export const STATUS_DELETE = -2;
 
 export const DEFAULT_TABLE_ITEM_SIZE = 30;
@@ -102,6 +107,11 @@ export const UserTypes = {
     ADMIN: 1,
     EDUCATOR:2,
     STUDENT: 3,
+};
+
+export const TaskTypes = {
+    TASK: 1,
+    SUBTASK: 2,
 };
 
 export const commonStatusColor = {

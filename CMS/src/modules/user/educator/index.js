@@ -94,7 +94,7 @@ const EducatorListPage = ({ pageOptions }) => {
             funcs.actionColumnButtons = (additionalButtons = {}) => ({
                 ...originalActionColumnButtons(additionalButtons),
                 changeStatus: ({ id, status, ...record }) => {
-                    if (record.account?.status !== 2) return null; // STATUS_PENDING
+                    if (record.account?.status !== 2) return null;
 
                     return (
                         <Button
@@ -106,7 +106,7 @@ const EducatorListPage = ({ pageOptions }) => {
                                     okText: 'Duyệt',
                                     cancelText: 'Huỷ',
                                     onOk: () => {
-                                        funcs.handleChangeStatus(id, 1); // STATUS_ACTIVE
+                                        funcs.handleChangeStatus(id, 1);
                                     },
                                 });
                             }}

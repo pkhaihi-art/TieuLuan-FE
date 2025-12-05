@@ -1,5 +1,3 @@
-@import '@assets/scss/global';
-
 .logo {
     display: flex;
     align-items: center;
@@ -7,8 +5,10 @@
 
     &[data-collapsed='true'] {
         margin-top: 5px;
+        margin-bottom: 20px;    // thêm khoảng cách với menu
         height: 26px;
         padding: 4px;
+
         img {
             border-radius: 4px;
             width: 100%;
@@ -17,9 +17,10 @@
 
     &[data-collapsed='false'] {
         margin-top: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;    // tăng khoảng cách menu khi sidebar mở
         padding: 8px;
         height: 100px;
+
         img {
             border-radius: 10px;
             width: 100%;
@@ -28,7 +29,7 @@
 }
 
 .menu {
-    [role='menuitem']{
+    [role='menuitem'] {
         outline: none !important;
     }
 }

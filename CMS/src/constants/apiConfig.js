@@ -17,6 +17,11 @@ const apiConfig = {
             method: 'POST',
             headers: baseHeader,
         },
+        loginGoogle:{
+            baseURL: `${apiUrl}v1/google/educator-login`,
+            method: 'POST',
+            headers: baseHeader,
+        },
         loginBasic: {
             baseURL: `${apiUrl}api/token`,
             method: 'POST',
@@ -56,6 +61,16 @@ const apiConfig = {
             headers: baseHeader,
             permissionCode: 'ACC_U_PROFILE_AD',
         },
+        forgetPassword: {
+            baseURL: `${apiUrl}v1/account/forget_password`,
+            method: 'POST',
+            headers: baseHeader,
+        },
+        requestForgetPassword: {
+            baseURL: `${apiUrl}v1/account/request_forget_password`,
+            method: 'POST',
+            headers: baseHeader,
+        },
         getById: {
             baseURL: `${apiUrl}v1/account/get/:id`,
             method: 'GET',
@@ -79,7 +94,7 @@ const apiConfig = {
             isRequiredTenantId: true,
         },
         getList: {
-            baseURL: `${apiUrl}v1/account/list-admin`,
+            baseURL: `${apiUrl}v1/account/list`,
             method: `GET`,
             headers: baseHeader,
             permissionCode: 'ACC_L',
@@ -108,11 +123,11 @@ const apiConfig = {
             baseURL: `${apiUrl}v1/simulation/approve`,
             method: `PUT`,
             headers: baseHeader,
-            permissionCode: 'SSI_AP',
+            permissionCode: 'SI_AP',
         },
         approveDelete: {
             baseURL: `${apiUrl}v1/simulation/approve-delete/:id`,
-            method: `DELETE`,
+            method: `PUT`,
             headers: baseHeader,
             permissionCode: 'SI_APD',
         },
@@ -138,7 +153,7 @@ const apiConfig = {
             baseURL: `${apiUrl}v1/simulation/educator-request-delete/:id`,
             method: `DELETE`,
             headers: baseHeader,
-            permissionCode: 'SI_E_RED',
+            permissionCode: 'SI_ED_RED',
         },
         getById: {
             baseURL: `${apiUrl}v1/simulation/get/:id`,
@@ -160,7 +175,7 @@ const apiConfig = {
         },
         rejectDelete: {
             baseURL: `${apiUrl}v1/simulation/reject-delete/:id`,
-            method: `DELETE`,
+            method: `PUT`,
             headers: baseHeader,
             permissionCode: 'SI_RJD',
         },
@@ -174,7 +189,7 @@ const apiConfig = {
             baseURL: `${apiUrl}v1/simulation/student-list`,
             method: `GET`,
             headers: baseHeader,
-            permissionCode: 'SIM_LS',
+            permissionCode: 'SI_ST_L',
         },
         update: {
             baseURL: `${apiUrl}v1/simulation/update`,
@@ -183,6 +198,7 @@ const apiConfig = {
             permissionCode: 'SI_U',
         },
     },
+
 
     // Task APIs
     task: {
@@ -427,35 +443,35 @@ const apiConfig = {
     },
 
     specialization: {
-        autoComplete: {
-            baseURL: `${apiUrl}v1/specialization/auto-complete`,
+        getList: {
+            baseURL: `${apiUrl}v1/specialization/list`,
             method: `GET`,
             headers: baseHeader,
-            permissionCode: 'SPC_AC',
+            permissionCode: 'SP_L',
         },
         create: {
             baseURL: `${apiUrl}v1/specialization/create`,
             method: `POST`,
             headers: baseHeader,
-            permissionCode: 'SPC_C',
-        },
-        delete: {
-            baseURL: `${apiUrl}v1/specialization/delete/:id`,
-            method: `DELETE`,
-            headers: baseHeader,
-            permissionCode: 'SPC_D',
-        },
-        getList: {
-            baseURL: `${apiUrl}v1/specialization/list`,
-            method: `GET`,
-            headers: baseHeader,
-            permissionCode: 'SPC_L',
+            permissionCode: 'SP_C',
         },
         update: {
             baseURL: `${apiUrl}v1/specialization/update`,
             method: `PUT`,
             headers: baseHeader,
-            permissionCode: 'SPC_U',
+            permissionCode: 'SP_U',
+        },
+        delete: {
+            baseURL: `${apiUrl}v1/specialization/delete/:id`,
+            method: `DELETE`,
+            headers: baseHeader,
+            permissionCode: 'SP_D',
+        },
+        getById: {
+            baseURL: `${apiUrl}v1/specialization/get/:id`,
+            method: `GET`,
+            headers: baseHeader,
+            permissionCode: 'SP_L',
         },
     },
     student: {

@@ -6,7 +6,7 @@ import apiConfig from '@constants/apiConfig';
 import useSaveBase from '@hooks/useSaveBase';
 import useTranslate from '@hooks/useTranslate';
 import { commonMessage } from '@locales/intl';
-import TaskQuestionForm from '@modules/task/taskQuestion/TaskQuestionForm';
+import TaskQuestionForm from '@modules/simulation/taskQuestion/TaskQuestionForm';
 
 const TaskQuestionSavePage = ({ pageOptions }) => {
     const translate = useTranslate();

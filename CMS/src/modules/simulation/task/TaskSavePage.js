@@ -6,7 +6,7 @@ import apiConfig from '@constants/apiConfig';
 import useSaveBase from '@hooks/useSaveBase';
 import useTranslate from '@hooks/useTranslate';
 import { commonMessage } from '@locales/intl';
-import TaskForm from '@modules/task/TaskForm';
+import TaskForm from '@modules/simulation/task/TaskForm';
 
 const TaskSavePage = ({ pageOptions }) => {
     const translate = useTranslate();
@@ -15,7 +15,7 @@ const TaskSavePage = ({ pageOptions }) => {
 
     const { detail, mixinFuncs, loading, onSave, setIsChangedFormValues, isEditing, title } = useSaveBase({
         apiConfig: {
-            getById: apiConfig.task.getById,
+            getById: apiConfig.task.educatorGet,
             create: apiConfig.task.create,
             update: apiConfig.task.update,
         },

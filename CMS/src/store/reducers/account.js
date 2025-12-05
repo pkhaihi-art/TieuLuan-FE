@@ -44,6 +44,7 @@ const accountReducer = createReducer(
             state.profile = null;
             state.userType = null; 
             removeItem(storageKeys.USER_TYPE);
+            removeItem(storageKeys.PARENT_TASK_INFO);
         },
     },
 );

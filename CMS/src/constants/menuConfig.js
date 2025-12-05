@@ -50,17 +50,22 @@ export const navMenuConfig = [
         key: 'quan-ly-bai-mo-phong',
         icon: <IconSettings size={16} />,
         children: [
-            // {
-            //     label: <FormattedMessage defaultMessage="Danh sách mô phỏng" />,
-            //     key: 'simulation',
-            //     path: routes.simulationListPage.path,
-            //     permission: [apiConfig.simulation.getList.permissionCode],
-            // },
             {
                 label: <FormattedMessage defaultMessage="Danh sách mô phỏng" />,
-                key: 'simulation1',
-                path: routes.educatorListPage.auth,
-                permission: [apiConfig.simulation.getListForEducator.permissionCode],
+                key: 'simulation',
+                path: routes.simulationListPage.path,
+            },
+        ],
+    },
+    {
+        label: <FormattedMessage defaultMessage="Quản lý chuyên ngành" />,
+        key: 'quan-ly-chuyen-nganh',
+        icon: <IconSettings size={16} />,
+        children: [
+            {
+                label: <FormattedMessage defaultMessage="Danh sách chuyên ngành" />,
+                key: 'specialization',
+                path: routes.specializationListPage.path,
             },
         ],
     },

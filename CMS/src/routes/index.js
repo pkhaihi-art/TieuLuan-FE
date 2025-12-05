@@ -12,6 +12,7 @@ import authRoutes from "@modules/auth/routes";
 import educatorRoutes from "@modules/user/educator/routes";
 import studentRoutes from "@modules/user/student/routes";
 import simulationRoutes from "@modules/simulation/routes";
+import specializationRoutes from "@modules/specialization/routes";
 
 /*
 	auth
@@ -74,6 +75,7 @@ const routes = {
     ...educatorRoutes,
     ...studentRoutes,
     ...simulationRoutes,
+    ...specializationRoutes,
     // keep this at last
     notFound: {
         component: PageNotFound,
